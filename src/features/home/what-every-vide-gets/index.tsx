@@ -1,3 +1,4 @@
+"use client";
 import {
   AudioIcon,
   ClosedCaptionsTagIcon,
@@ -6,6 +7,7 @@ import {
   RevisionIcon,
   VideoIcon,
 } from "@/core/icons";
+import { motion } from "motion/react";
 
 export function WhatEveryVideoGets() {
   return (
@@ -26,22 +28,29 @@ export function WhatEveryVideoGets() {
 
           <div className="w-full grid auto-rows-fr grid-cols-1 min-[580px]:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {items.map((item) => (
-              <div
+              <motion.div
+                whileHover={{ y: -10, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 key={item.id}
-                className="relative border border-foreground/5 p-1 rounded-[20px]"
+                className="relative border border-foreground/10 p-0.5 rounded-2xl"
               >
-                <div className="relative z-10 flex w-full flex-col gap-2 justify-end overflow-hidden rounded-2xl border border-transparent bg-card px-6 py-5 shadow-sm shadow-sky-950/15 ring-1 ring-foreground/10 h-full">
-                  <div className="relative w-fit h-fit mb-4">
-                    <div className="rounded-xl size-10 p-1 bg-linear-to-b from-brand to-brand-light flex items-center justify-center">
+                <div className="relative z-10 flex flex-col gap-4 justify-between overflow-hidden rounded-2xl border border-transparent bg-card/20 px-6 py-8 shadow-lg shadow-black/20 ring-1 ring-foreground/10 h-full backdrop-blur-xl hover:shadow-xl hover:shadow-brand/10 transition-all duration-300 group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-foreground/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative w-fit h-fit">
+                    <div className="rounded-xl size-14 p-3 bg-gradient-to-b from-brand to-brand-light flex items-center justify-center shadow-md shadow-brand/20">
                       <item.icon className="text-white size-7" />
                     </div>
                   </div>
-
-                  {item.title()}
-
-                  {item.description()}
+                  <div className="relative space-y-3">
+                    <div className="text-xl font-semibold text-foreground">
+                      {item.title()}
+                    </div>
+                    <div className="text-foreground/80">
+                      {item.description()}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -83,7 +92,7 @@ const items = [
       <h3 className="text-xl tracking-wider font-medium">Editing</h3>
     ),
     description: () => (
-      <p className="text-zinc-300 text-[14px] lg:text-[15.5px] font-sans">
+      <p className="text-foreground/70 text-[14px] lg:text-[15.5px] font-sans">
         Clean cuts, smooth transitions, proper pacing. B-roll integrated if
         provided.
       </p>
@@ -96,7 +105,7 @@ const items = [
       <h3 className="text-xl tracking-wider font-medium">Captions & Text</h3>
     ),
     description: () => (
-      <p className="text-zinc-300 text-[14px] lg:text-[15.5px] font-sans">
+      <p className="text-foreground/70 text-[14px] lg:text-[15.5px] font-sans">
         Auto-captions reviewed manually. Or custom text overlays. Your choice.
       </p>
     ),
@@ -106,7 +115,7 @@ const items = [
     id: "item-3",
     title: () => <h3 className="text-xl tracking-wider font-medium">Audio</h3>,
     description: () => (
-      <p className="text-zinc-300 text-[14px] lg:text-[15.5px] font-sans">
+      <p className="text-foreground/70 text-[14px] lg:text-[15.5px] font-sans">
         Licensed background music. Balanced sound levels. Basic noise cleanup.
       </p>
     ),
@@ -116,7 +125,7 @@ const items = [
     id: "item-4",
     title: () => <h3 className="text-xl tracking-wider font-medium">Color</h3>,
     description: () => (
-      <p className="text-zinc-300 text-[14px] lg:text-[15.5px] font-sans">
+      <p className="text-foreground/70 text-[14px] lg:text-[15.5px] font-sans">
         Corrected for consistency. Graded for mood when appropriate.
       </p>
     ),
@@ -128,7 +137,7 @@ const items = [
       <h3 className="text-xl tracking-wider font-medium">Formats</h3>
     ),
     description: () => (
-      <p className="text-zinc-300 text-[14px] lg:text-[15.5px] font-sans">
+      <p className="text-foreground/70 text-[14px] lg:text-[15.5px] font-sans">
         Platform-ready. Vertical for Reels and Shorts. Horizontal for YouTube.
         Whatever you need.
       </p>
@@ -141,7 +150,7 @@ const items = [
       <h3 className="text-xl tracking-wider font-medium">Revisions</h3>
     ),
     description: () => (
-      <p className="text-zinc-300 text-[14px] lg:text-[15.5px] font-sans">
+      <p className="text-foreground/70 text-[14px] lg:text-[15.5px] font-sans">
         One round included for music, pacing, text, or color adjustments.
       </p>
     ),

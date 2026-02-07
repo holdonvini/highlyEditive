@@ -1,4 +1,4 @@
-import { cn } from "@/lib/classes";
+"use client";import { cn } from "@/lib/classes";
 import {
   ArrowDownRightIcon,
   ArrowRightBottomIcon,
@@ -8,6 +8,8 @@ import {
   PremiereProIcon,
 } from "@/core/icons";
 import { Logo } from "@/core/components/Logo";
+
+import { motion } from "motion/react";
 
 const WhoThisIsForItems = [
   {
@@ -80,18 +82,21 @@ export function WhoThisIsFor() {
 
         <div className="flex flex-col gap-7 max-w-(--max-page-width) px-6 lg:px-12 xl:px-0 mt-8">
           <div className="w-full grid auto-rows-fr grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {WhoThisIsForItems.map((item, index) => (
-              <div
+            {WhoThisIsForItems.map((item:any, index) => (
+              <motion.div
+                whileHover={{ y: -10, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 className="z-1 relative rounded-[20px] border border-foreground/10 p-1 min-h-42.5"
                 key={index}
               >
-                <div className="relative z-10 flex w-full flex-col overflow-hidden rounded-2xl border border-transparent bg-card/20 px-6 py-5 shadow-2xl shadow-brand/15 ring-1 ring-foreground/10 h-full backdrop-blur-sm">
+                <div className="relative z-10 flex w-full flex-col overflow-hidden rounded-2xl border border-transparent bg-card/20 px-6 py-5 shadow-2xl shadow-brand/15 ring-1 ring-foreground/10 h-full backdrop-blur-xl hover:shadow-2xl hover:shadow-brand/25 transition-all duration-300 group">
                   <div
                     // className={cn(
                     //   "bg-linear-to-b border-foreground/10 relative -m-8 flex flex-col justify-center border-x from-transparent to-transparent p-8 h-1/4 min-h-12.5",
                     //   item.shading,
                     // )}
                   >
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-foreground/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     {/* <div className="absolute -inset-x-6 inset-y-0 bg-[repeating-linear-gradient(-45deg,var(--foreground),var(--foreground)_1px,transparent_1px,transparent_6px)] mix-blend-overlay mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" /> */}
                   </div>
                   <div className="flex flex-col gap-6">
@@ -100,15 +105,15 @@ export function WhoThisIsFor() {
                         {index + 1}
                       </div>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-medium leading-tight tracking-wide text-zinc-100">
-                      {item.title}
+                    <h3 className="text-xl md:text-2xl font-medium leading-tight tracking-wide text-foreground">
+                      {item?.title}
                     </h3>
-                    <p className="text-zinc-300 text-sm lg:text-[15px] font-medium">
-                      {item.description}
+                    <p className="text-foreground/70 text-sm lg:text-[15px] font-medium">
+                      {item?.description}
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
