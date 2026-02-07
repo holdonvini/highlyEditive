@@ -75,7 +75,7 @@ export function WhoThisIsFor() {
             </p> */}
           </div>
 
-          <div className="absolute inset-0 bg-[radial-gradient(var(--foreground)_0.3px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_30%_30%_at_50%_30%,#000_2%,transparent_100%)] -z-1"></div>
+          {/* <div className="absolute inset-0 bg-[radial-gradient(var(--foreground)_0.3px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_30%_30%_at_50%_30%,#000_2%,transparent_100%)] -z-1"></div> */}
         </div>
 
         <div className="flex flex-col gap-7 max-w-(--max-page-width) px-6 lg:px-12 xl:px-0 mt-8">
@@ -87,12 +87,12 @@ export function WhoThisIsFor() {
               >
                 <div className="relative z-10 flex w-full flex-col overflow-hidden rounded-2xl border border-transparent bg-card px-6 py-5 shadow-2xl shadow-sky-950/15 ring-1 ring-foreground/10 h-full">
                   <div
-                    className={cn(
-                      "bg-linear-to-b border-foreground/10 relative -m-8 flex flex-col justify-center border-x from-transparent to-transparent p-8 h-1/4 min-h-12.5",
-                      item.shading,
-                    )}
+                    // className={cn(
+                    //   "bg-linear-to-b border-foreground/10 relative -m-8 flex flex-col justify-center border-x from-transparent to-transparent p-8 h-1/4 min-h-12.5",
+                    //   item.shading,
+                    // )}
                   >
-                    <div className="absolute -inset-x-6 inset-y-0 bg-[repeating-linear-gradient(-45deg,var(--foreground),var(--foreground)_1px,transparent_1px,transparent_6px)] mix-blend-overlay mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+                    {/* <div className="absolute -inset-x-6 inset-y-0 bg-[repeating-linear-gradient(-45deg,var(--foreground),var(--foreground)_1px,transparent_1px,transparent_6px)] mix-blend-overlay mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" /> */}
                   </div>
                   <div className="flex flex-col gap-6">
                     <div className="relative rounded-lg border border-foreground/15 p-0.5 w-fit">
