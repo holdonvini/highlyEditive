@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  /* COLORS */
+  --background: #561c24; /* Dark red/brown background */
+  --foreground: #e8d8c4; /* Light beige text */
+  --brand: #6d932; /* Dark green/brown accent */
+  --brand-light: #c7b7a3; /* Medium brown accent */
+  --card: #6d932; /* Dark green/brown card background */
+
+  /* Variables */
+  --max-page-width: 1240px;
+  --header-height: 72px;
+}
+
+@theme inline {
+  /* COLORS */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-light: var(--brand-light);
+  --color-card: var(--card);
+  /* FONTS */
+  --font-sans: var(--font-satoshi);
+  --font-serif: var(--font-instrument-serif);
+  --font-display: var(--font-playfair-display);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  html {
+    scroll-padding-top: calc(var(--header-height) + 0.5rem);
+  }
+  
+  /* Additional color adjustments for better contrast */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-foreground;
+  }
+  
+  p {
+    @apply text-foreground/90;
+  }
+  
+  a {
+    @apply text-brand-light hover:text-foreground;
+  }
+  
+  button {
+    @apply text-white;
+  }
+  
+  /* Premium typography enhancements */
+  h1 {
+    @apply font-extrabold tracking-tight;
+  }
+  
+  h2 {
+    @apply font-bold tracking-tight;
+  }
+  
+  /* Premium card and section styling */
+  .card {
+    @apply bg-card/30 backdrop-blur-sm border border-foreground/10 rounded-xl;
+  }
+  
+  .section {
+    @apply py-20 md:py-32 relative;
+  }
+  
+  /* Luxury gradient and glow effects */
+  .luxury-glow {
+    box-shadow: 0 0 20px rgba(109, 147, 50, 0.2);
+  }
+  
+  .gold-accent::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#6d932] to-transparent;
+  }
+}
+
+@keyframes ticker-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--ticker-width, -3000px));
+  }
+}
+
+@keyframes ticker-right {
+  from {
+    transform: translateX(var(--ticker-width, -3000px));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.ticker-row-left {
+  animation: ticker-left 60s linear infinite;
+  will-change: transform;
+}
+
+.ticker-row-right {
+  animation: ticker-right 60s linear infinite;
+  will-change: transform;
+}
