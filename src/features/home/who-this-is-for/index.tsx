@@ -85,7 +85,7 @@ export function WhoThisIsFor() {
                 className="z-1 relative rounded-[20px] border border-foreground/10 p-1 min-h-42.5"
                 key={index}
               >
-                <div className="relative z-10 flex w-full flex-col overflow-hidden rounded-2xl border border-transparent bg-card px-6 py-5 shadow-2xl shadow-sky-950/15 ring-1 ring-foreground/10 h-full">
+                <div className="relative z-10 flex w-full flex-col overflow-hidden rounded-2xl border border-transparent bg-card/20 px-6 py-5 shadow-2xl shadow-brand/15 ring-1 ring-foreground/10 h-full backdrop-blur-sm">
                   <div
                     // className={cn(
                     //   "bg-linear-to-b border-foreground/10 relative -m-8 flex flex-col justify-center border-x from-transparent to-transparent p-8 h-1/4 min-h-12.5",

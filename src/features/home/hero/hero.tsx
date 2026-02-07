@@ -26,7 +26,7 @@ export function Hero() {
       </div> */}
       <div className="absolute inset-0 z-0">
         <Aurora
-          colorStops={["#262cff", "#f4f4f5", "#4369ff"]}
+          colorStops={["#561c24", "#6d4a3d", "#561c24"]}
           blend={0.7}
           amplitude={0.5}
           speed={0.5}
