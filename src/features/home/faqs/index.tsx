@@ -33,7 +33,7 @@ export function Faqs() {
                 return (
                   <div 
                     key={faq.id}
-                    className="bg-gradient-to-br from-background/50 to-background/30 backdrop-blur-xl rounded-3xl shadow-lg shadow-foreground/10 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] hover:shadow-xl hover:shadow-brand/20"
+                    className="bg-white/5 backdrop-blur-xl rounded-3xl overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
                   >
                     <div className="flex">
                       <button 
@@ -41,13 +41,13 @@ export function Faqs() {
                         onClick={() => handleTriggerClick(faq.id)}
                       >
                         <div className="flex items-center gap-3">
-                          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-brand to-brand-light flex items-center justify-center">
+                          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
                             <span className="text-white text-sm font-bold">Q</span>
                           </div>
                           <span className="text-sm">{faq.question}</span>
                         </div>
                         <div className="shrink-0">
-                          <ChevronDown className={`size-4 text-foreground/70 transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${isOpen ? 'rotate-180' : ''}`} />
+                          <span className={`text-foreground/70 text-xl transition-transform duration-700 ease-[cubic-bezier(0.33,1,0.68,1)] ${isOpen ? 'rotate-45' : ''}`}>{isOpen ? '×' : '+'}</span>
                         </div>
                       </button>
                     </div>
