@@ -14,20 +14,13 @@ export function Problems() {
   return (
     <div
       ref={containerRef}
-      className="relative z-10 grid place-items-center py-[20px] pb-7 overflow-x-hidden"
+      className="relative z-10 grid place-items-center py-20 pb-16 overflow-x-hidden"
     >
-      <ProblemHeading containerProgress={containerProgress} />
-      <div className="w-full grid lg:gap-26 gap-18 max-w-2xl overflow-hidden">
-        {problems.map((problem, index) => (
-          <ProblemItem
-            key={problem.id}
-            index={index}
-            containerProgress={containerProgress}
-            {...problem}
-          />
-        ))}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-background to-transparent opacity-30"></div>
+      <div className="relative max-w-4xl px-6 text-center">
+        <ProblemHeading containerProgress={containerProgress} />
+        <ProblemClosing containerProgress={containerProgress} />
       </div>
-      <ProblemClosing containerProgress={containerProgress} />
     </div>
   );
 }
@@ -66,7 +59,7 @@ function ProblemHeading({ containerProgress }: ProblemHeadingProps) {
 
   return (
     <motion.h4
-      className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-center mb-8 text-zinc-300"
+      className="text-lg md:text-xl lg:text-2xl font-medium leading-tight text-center mb-4 text-foreground/70 tracking-normal lowercase"
       style={{
         y,
         scale,
@@ -79,7 +72,7 @@ function ProblemHeading({ containerProgress }: ProblemHeadingProps) {
         opacity,
       }}
     >
-      Most editing services make it worse
+      THE PROBLEM
     </motion.h4>
   );
 }
@@ -212,7 +205,7 @@ function ProblemClosing({ containerProgress }: ProblemClosingProps) {
 
   return (
     <motion.div
-      className="mt-12 text-center"
+      className="mt-8 text-center"
       style={{
         y,
         scale,
@@ -220,11 +213,20 @@ function ProblemClosing({ containerProgress }: ProblemClosingProps) {
         filter: useTransform([blur], ([b]) => `blur(${b}px)`),
       }}
     >
-      <p className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed text-center max-w-xl mx-auto">
-        So your content stays in a folder.
-        <br />
-        <span className="italic">And consistency dies.</span>
-      </p>
+      <div className="space-y-4 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed text-center text-foreground">
+          You don't need another editor. You need a system.
+        </p>
+        <p className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed text-center text-foreground">
+          You know what to say. You understand your audience. Recording is simple.
+        </p>
+        <p className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed text-center text-foreground">
+          The editing is what takes forever. The cutting, syncing, color correction, captions, exports. The part that stops you from posting consistently.
+        </p>
+        <p className="text-xl md:text-2xl lg:text-3xl font-bold italic text-center mt-6 text-brand">
+          We fix that part.
+        </p>
+      </div>
     </motion.div>
   );
 }

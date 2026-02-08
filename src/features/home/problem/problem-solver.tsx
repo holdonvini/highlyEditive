@@ -11,7 +11,8 @@ export function ProblemSolver() {
             consistently.
           </h4>
           <h4 className="text-2xl sm:text-4xl font-semibold leading-tight ">
-            <TextHighlighter
+          We fix that part.
+            {/* <TextHighlighter
               highlightColor="oklch(0.585 0.226 267.7)"
               className="px-1 rounded-sm will-change-transform text-white mt-3 inline-block font-medium"
               transition={{
@@ -21,8 +22,8 @@ export function ProblemSolver() {
                 bounce: 0,
               }}
             >
-              We fix that part.
-            </TextHighlighter>
+              
+            </TextHighlighter> */}
           </h4>
         </div>
       </div>
