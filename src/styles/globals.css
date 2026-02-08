@@ -21,9 +21,9 @@
   --color-brand-light: var(--brand-light);
   --color-card: var(--card);
   /* FONTS */
-  --font-sans: var(--font-satoshi);
-  --font-serif: var(--font-instrument-serif);
-  --font-display: var(--font-playfair-display);
+  --font-sans: var(--font-eb-garamond), var(--font-satoshi);
+  --font-serif: var(--font-eb-garamond), var(--font-instrument-serif);
+  --font-display: var(--font-eb-garamond), var(--font-playfair-display);
 }
 
 @layer base {
@@ -34,47 +34,47 @@
   html {
     scroll-padding-top: calc(var(--header-height) + 0.5rem);
   }
-  
+
   /* Additional color adjustments for better contrast */
   h1, h2, h3, h4, h5, h6 {
-    @apply text-foreground;
+    @apply text-foreground font-sans;
   }
-  
+
   p {
-    @apply text-foreground/90;
+    @apply text-foreground/90 font-sans;
   }
-  
+
   a {
-    @apply text-brand-light hover:text-foreground;
+    @apply text-brand-light hover:text-foreground font-sans;
   }
-  
+
   button {
-    @apply text-white;
+    @apply text-white font-sans;
   }
-  
+
   /* Premium typography enhancements */
   h1 {
     @apply font-extrabold tracking-tight;
   }
-  
+
   h2 {
     @apply font-bold tracking-tight;
   }
-  
+
   /* Premium card and section styling */
   .card {
     @apply bg-card/30 backdrop-blur-sm border border-foreground/10 rounded-xl;
   }
-  
+
   .section {
     @apply py-20 md:py-32 relative;
   }
-  
+
   /* Luxury gradient and glow effects */
   .luxury-glow {
     box-shadow: 0 0 20px rgba(109, 147, 50, 0.2);
   }
-  
+
   .gold-accent::before {
     content: '';
     @apply absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#6d932] to-transparent;
