@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Problem />
+      {/* <Problem /> */}
       <LadderEditing />
       <ForWhom/>
       <Solutions />
