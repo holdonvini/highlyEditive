@@ -11,13 +11,16 @@ import { Problem } from "features/home/problem";
 import { WhatEveryVideoGets } from "features/home/what-every-vide-gets";
 import { NewPricing } from "features/home/new-pricing";
 import { Solutions } from "features/home/solutions";
+import { LadderEditing } from "features/home/ladder-editing";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <Problem />
+      <LadderEditing />
       <Solutions />
+      
       <Proof />
       <WhoThisIsFor />
       {/* <NewPricing /> */}
