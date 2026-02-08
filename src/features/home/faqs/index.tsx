@@ -1,7 +1,15 @@
-import { ArrowRight, ChevronDown } from "@/core/icons";
-import { Accordion } from "@base-ui/react/accordion";
+"use client";
+
+import { ChevronDown } from "@/core/icons";
+import { useState } from "react";
 
 export function Faqs() {
+  const [openItem, setOpenItem] = useState<string | null>(null);
+
+  const handleTriggerClick = (value: string) => {
+    setOpenItem(openItem === value ? null : value);
+  };
+
   return (
     <section id="faqs" className="relative">
       <div className="relative py-16 md:py-24">
@@ -18,28 +26,42 @@ export function Faqs() {
             </h2>
           </div>
 
-          <div className="mx-auto mt-12 max-w-2xl w-full">
-            <Accordion.Root className="flex flex-col bg-card/20 w-full rounded-2xl border border-foreground/10 px-6 py-2 shadow-lg shadow-black/20 backdrop-blur-sm">
+          <div className="mx-auto mt-12 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {faqItems.map((faq) => {
+                const isOpen = openItem === faq.id;
                 return (
-                  <Accordion.Item
+                  <div 
                     key={faq.id}
-                    value={faq.id}
-                    className="border-b border-foreground/10 last:border-b-0 bg-foreground/5 rounded-lg m-2 transition-all duration-300 hover:bg-foreground/10"
+                    className="bg-gradient-to-br from-background/50 to-background/30 backdrop-blur-xl rounded-3xl shadow-lg shadow-foreground/10 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] hover:shadow-xl hover:shadow-brand/20"
                   >
-                    <Accordion.Header className="flex">
-                      <Accordion.Trigger className="flex flex-1 items-start justify-between gap-4 py-4 pb-2 text-left text-base font-medium cursor-pointer group text-foreground">
-                        {faq.question}
-                        <ChevronDown className="size-4 text-foreground/50 group-data-panel-open:rotate-180 transition-transform duration-300" />
-                      </Accordion.Trigger>
-                    </Accordion.Header>
-                    <Accordion.Panel className="text-base lg:text-lg text-foreground/80 h-(--accordion-panel-height) overflow-hidden transition-[height,opacity] ease-out data-ending-style:h-0 data-starting-style:h-0 data-ending-style:opacity-0 data-starting-style:opacity-0">
-                      <div className="py-1.5 px-3 pb-4">{faq.answer()}</div>
-                    </Accordion.Panel>
-                  </Accordion.Item>
+                    <div className="flex">
+                      <button 
+                        className="flex flex-1 items-center justify-between gap-2 p-4 text-left text-base font-medium cursor-pointer text-foreground transition-all duration-300 w-full text-left"
+                        onClick={() => handleTriggerClick(faq.id)}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-brand to-brand-light flex items-center justify-center">
+                            <span className="text-white text-sm font-bold">Q</span>
+                          </div>
+                          <span className="text-sm">{faq.question}</span>
+                        </div>
+                        <div className="shrink-0">
+                          <ChevronDown className={`size-4 text-foreground/70 transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${isOpen ? 'rotate-180' : ''}`} />
+                        </div>
+                      </button>
+                    </div>
+                    <div 
+                      className={`text-sm text-foreground/80 overflow-hidden transition-[height,opacity] duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${
+                        isOpen ? 'opacity-100' : 'opacity-0 h-0'
+                      }`}
+                    >
+                      <div className="p-4 pt-0">{faq.answer()}</div>
+                    </div>
+                  </div>
                 );
               })}
-            </Accordion.Root>
+            </div>
           </div>
         </div>
       </div>
