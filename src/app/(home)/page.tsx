@@ -12,6 +12,7 @@ import { WhatEveryVideoGets } from "features/home/what-every-vide-gets";
 import { NewPricing } from "features/home/new-pricing";
 import { Solutions } from "features/home/solutions";
 import { LadderEditing } from "features/home/ladder-editing";
+import { ForWhom } from "@/features/home/for-whom";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Hero />
       <Problem />
       <LadderEditing />
+      <ForWhom/>
       <Solutions />
       
       <Proof />

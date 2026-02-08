@@ -46,7 +46,7 @@ export function LadderEditing() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Three steps between you and a killer edit.
           </h2>
-          <p className="text-xl md:text-2xl text-foreground/80">
+          <p className="text-foreground/70 mb-6 text-balance text-base lg:text-lg font-medium">
             Three steps. Zero headaches.
           </p>
         </div>
